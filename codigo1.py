@@ -61,7 +61,7 @@ class Projectile:
 
 class Animator:
     # choose your favorite colors!
-    cls = ['green', 'red', 'blue', 'cyan', 'magenta', 'black','orange','grey','yellow','pink']
+    cls = ['lime', 'red', 'mediumblue', 'cyan', 'magenta', 'pink','orange','grey','yellow','pink']
     
     def __init__(self, objs):
         # objects to be animated and its total number
@@ -82,8 +82,7 @@ class Animator:
 
         self.fig = plt.figure()
         self.ax = plt.axes(autoscale_on=False, xlim=(-1, xmax+1), ylim=(-1, ymax+1))
-        self.ax.set(xlabel='x position', ylabel='y position', title='Projectile motion')
-        # ax.set_aspect('equal')
+        self.ax.set(xlabel='Posición en x', ylabel='Posición en y', title='Movimiento proyectil')
         self.ax.grid()
 
         # line points setup, time template, points on top of axes
@@ -95,7 +94,7 @@ class Animator:
         for i in range(self.number):
             artist = self.artists[i]
             angles.append(artist.get_angle())
-        self.ax.legend(["Angle = " + str(i) for i in angles])
+        self.ax.legend(["Theta = " + str(i) for i in angles])
         # line points setup, time template, points on top of axes
 
 
@@ -127,12 +126,12 @@ class Animator:
 # physical constants (in arbitrary units)
 grav_ = 1
 drag_ = .0 * grav_
-params = [val for val in range(15, 91, 15)]
+params = [val for val in range(30, 91, 15)]
 
 
 # initial position and velocity; acceleration
 x0, y0 = 0., 0.
-v0, alpha0 = 5, params
+v0, alpha0 = 50, params
 ax, ay = -drag_, -drag_ - grav_
 print("parameters =", params)
 
